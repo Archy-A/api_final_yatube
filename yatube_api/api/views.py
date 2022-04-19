@@ -2,9 +2,6 @@ from rest_framework import viewsets
 from django.shortcuts import get_object_or_404
 from posts.models import Post, Group, Follow
 from api.serializers import PostSerializer, CommentSerializer, GroupSerializer, FollowSerializer
-from django.core.exceptions import PermissionDenied
-from rest_framework.permissions import BasePermission, IsAuthenticated, SAFE_METHODS, IsAuthenticatedOrReadOnly
-from rest_framework.decorators import permission_classes
 from rest_framework import permissions
 from rest_framework import filters
 from rest_framework.pagination import LimitOffsetPagination
@@ -20,7 +17,6 @@ class ReadOnly(permissions.BasePermission):
 
 class CustomPermission(permissions.BasePermission):
     def has_permission(self, request, view):
-        #return request.user.is_authenticated
         return True
 
     def has_object_permission(self, request, view, obj):
@@ -72,21 +68,11 @@ class GroupViewSet(viewsets.ReadOnlyModelViewSet):
 
 class FollowViewSet(viewsets.ModelViewSet):
     serializer_class = FollowSerializer
-    # permission_classes = (CustomPermission,)
     filter_backends = (filters.SearchFilter,)
     search_fields = ['following__username',]
-
-    # def get_permissions(self):
-    #     if self.action == 'retrieve':
-    #         return (ReadOnly(),)
-    #     return super().get_permissions() 
 
     def get_queryset(self): 
         return Follow.objects.filter(user=self.request.user)
         
     def perform_create(self, serializer): 
         serializer.save(user=self.request.user)
-
-#=========================================
-
-
