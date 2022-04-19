@@ -70,6 +70,9 @@ class TestFollowAPI:
 
         data = {}
         response = user_client.post('/api/v1/follow/', data=data)
+        # print('xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx')
+        # # print(another_user, user_2,  user, follow_3, follow_2, user_client)
+        # print('xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx')
         assert response.status_code == 400, (
             'Проверьте, что при POST запросе на `/api/v1/follow/` с неправильными данными возвращается статус 400'
         )
