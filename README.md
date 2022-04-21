@@ -1,43 +1,75 @@
-### Как запустить проект:
+### How to launch the project: 
 
-Клонировать репозиторий и перейти в него в командной строке:
+Clone repository in open it via console:
+ 
+``` 
 
-```
-git clone https://github.com/Archy-A/api_final_yatube.git
-```
+git clone https://github.com/Archy-A/api_final_yatube.git 
 
-```
-cd api_final_yatube
-```
+``` 
 
-Cоздать и активировать виртуальное окружение:
+ 
+``` 
 
-```
-python3 -m venv env
-```
+cd api_final_yatube 
 
 ```
-source env/bin/activate
-```
+ 
+Create and activate a vitrual environment:
 
-Установить зависимости из файла requirements.txt:
+``` 
 
-```
-python3 -m pip install --upgrade pip
-```
+python3 -m venv env 
 
-```
-pip install -r requirements.txt
-```
+``` 
 
-Выполнить миграции:
 
-```
-python3 manage.py migrate
-```
+``` 
 
-Запустить проект:
+source env/bin/activate 
 
-```
-python3 manage.py runserver
+``` 
+
+Install requierments from requirements.txt:
+
+
+``` 
+python3 -m pip install --upgrade pip 
+
+``` 
+
+
+``` 
+pip install -r requirements.txt 
+
+``` 
+
+Make migrations: 
+
+``` 
+
+python3 manage.py migrate 
+
+``` 
+
+Execute the project: 
+
+``` 
+
+python3 manage.py runserver 
+
+``` 
+Technologies: 
+
+``` 
+
+Python, django
+
+``` 
+Author: 
+
+``` 
+
+Artur Avtukhov
+
 ```
