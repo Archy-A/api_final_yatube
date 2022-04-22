@@ -7,7 +7,7 @@ from rest_framework import filters
 from rest_framework.pagination import LimitOffsetPagination
 from django.contrib.auth import get_user_model
 
-from .archybaldo import ExtendedReadOnlyPermission, ReadOnly
+from .permissions import ExtendedReadOnlyPermission, ReadOnly
 
 User = get_user_model()
 
